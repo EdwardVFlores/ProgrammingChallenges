@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/*
+Link to problem:
+https://open.kattis.com/problems/drmmessages
+*/
 public class DRMMessages {
 
         public static void main(String[] args) {
