@@ -2,6 +2,12 @@ package programmingchallenges;
 
 import java.util.Calendar;
 import java.util.Scanner;
+
+/*
+Link to problem:
+https://open.kattis.com/problems/datum
+*/
+
 public class Datum {
 
     public static void main(String[] args) {
