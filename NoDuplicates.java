@@ -3,6 +3,11 @@ package programmingchallenges;
 import java.util.Scanner;
 import java.util.HashMap;
 
+/*
+Link to problem:
+https://open.kattis.com/problems/nodup
+*/
+
 public class NoDuplicates {
 
         public static void main(String[] args) {
