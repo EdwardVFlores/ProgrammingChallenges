@@ -1,6 +1,12 @@
 package programmingchallenges;
 
 import java.util.Scanner;
+
+/*
+Link to problem:
+https://open.kattis.com/problems/hissingmicrophone
+*/
+
 public class HissingMicrophone {
 
     public static void main(String[] args) {
