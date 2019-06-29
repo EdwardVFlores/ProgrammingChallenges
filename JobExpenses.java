@@ -2,6 +2,11 @@ package programmingchallenges;
 
 import java.util.Scanner;
 
+/*
+Link to code:
+https://open.kattis.com/problems/jobexpenses
+*/
+
 public class JobExpenses {
 
         public static void main(String[] args) {
