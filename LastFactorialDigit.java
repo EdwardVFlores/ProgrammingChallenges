@@ -2,6 +2,11 @@ package programmingchallenges;
 
 import java.util.Scanner;
 
+/*
+Link to problem:
+https://open.kattis.com/problems/lastfactorialdigit
+*/
+
 public class LastFactorialDigit {
 
         public static void main(String[] args) {
