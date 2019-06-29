@@ -2,6 +2,12 @@ package programmingchallenges;
 
 import java.util.Scanner;
 import java.util.Arrays;
+
+/*
+Link to problem:
+https://open.kattis.com/problems/ladder
+*/
+
 public class Ladder {
 
     public static void main(String[] args) {
