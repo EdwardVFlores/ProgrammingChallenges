@@ -1,5 +1,9 @@
 package programmingchallenges;
 
+/*
+Link to problem:
+https://leetcode.com/problems/goat-latin/
+*/
 public class GoatLatin {
 
         public static void main(String[] args) {
