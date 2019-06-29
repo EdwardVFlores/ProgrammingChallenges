@@ -2,6 +2,8 @@ package programmingchallenges;
 
 import java.util.Scanner;
 
+//https://open.kattis.com/problems/mixedfractions
+
 public class MixedFractions {
 
         public static void main(String[] args) {
