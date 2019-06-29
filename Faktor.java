@@ -2,6 +2,10 @@ package programmingchallenges;
 
 import java.util.Scanner;
 
+/*
+Link to problem
+https://open.kattis.com/problems/faktor
+*/
 public class Faktor {
     
     public static void main(String[] args) {
