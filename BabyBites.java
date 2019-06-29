@@ -2,6 +2,11 @@ package programmingchallenges;
 
 import java.util.Scanner;
 
+/*
+Link to problem:
+https://open.kattis.com/problems/babybites
+*/
+
 public class BabyBites {
 
         public static void main(String[] args) {
