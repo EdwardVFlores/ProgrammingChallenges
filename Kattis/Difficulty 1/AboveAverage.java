@@ -1,11 +1,19 @@
 package programmingchallenges;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
  * @author Edward Flores
  * Link: https://open.kattis.com/problems/aboveaverage
+ * 5
+5 50 50 70 80 100
+7 100 95 90 80 70 60 50
+7 100 95 90 80 70 60 50
+3 10 25 33
+9 100 99 20 97 96 95 94 93 91
  */
 
 public class AboveAverage{
@@ -23,21 +31,11 @@ public class AboveAverage{
             while(avg.length()<8){
                 avg+='0';
             }
-            LinkedList avgList = new LinkedList<>();
+            ArrayList avgList = new ArrayList<>();
             for(int i=0; i<8; i++){
                 avgList.add(avg.charAt(i));
             }
-            avgList.add(4,'.');
-            avgList.remove(1);
-            if(Integer.valueOf(avgList.get(7)+"") >=5){
-                avgList.add(6, Integer.valueOf(avgList.get(6)+"") +1);
-                avgList.removeLast();
-                avgList.removeLast();
-            } else avgList.removeLast();
-            
-            avgList.add('%');
-            if(Integer.valueOf(avgList.get(0)+"") <1) avgList.removeFirst();
-            Object[] ans = avgList.stream().toArray();
+            ArrayList ans = roundUp(avgList, avgList.size()-1);
             for(Object o : ans){
                 System.out.print(o);
             }
@@ -62,4 +60,21 @@ public class AboveAverage{
         return total;
     }
     
+    public static ArrayList roundUp(ArrayList l,int pointer){
+        int carry = 0;
+        int curr = Integer.valueOf(l.get(pointer)+"");
+        int next = Integer.valueOf(l.get(pointer-1)+"");
+        if(next==0){
+            l.set(0, 1);
+            return l;
+        }
+        else if(curr<9) {
+            l.set(curr, 1);
+            return l;
+        }
+        else{
+            pointer--;
+            return roundUp(l,pointer);
+        }
+    }
 }
