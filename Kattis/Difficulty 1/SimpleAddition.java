@@ -28,22 +28,17 @@ public class SimpleAddition{
         for(char c : smallNum){
             smallList.add(c);
         }
-        while(smallList.size()!=bigIntArr.length){
-            smallList.add(0, 0);
-        }
-        int[] smallIntArr = new int[bigNum.length+1];
+        
+        int[] smallIntArr = new int[smallList.size()];
         for(int i=0;i<smallIntArr.length;i++){
             smallIntArr[i] = Integer.valueOf(smallList.get(i)+"");
         }
         
         //Addition process
-        for(int i=bigIntArr.length-1;i>=0;i--){
-            for(int j=i;j>=0;j--){
-                int carry = (bigIntArr[j] + smallIntArr[i])/10;
-                bigIntArr[j] = (bigIntArr[j] + smallIntArr[i])%10;
-                if(carry==0) break;
-            }
-        }
+        
+        // Okay time to just reverse the small number,
+        // And use that for the reset of index for the big number,
+        // Because I am starting to give up.
         
         //Print out
         if(bigIntArr[0] == 0){
