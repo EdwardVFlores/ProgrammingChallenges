@@ -21,6 +21,7 @@ public class SimpleAddition{
             bigNum = smallNum;
             smallNum = temp;
         }
+        //Make numbers into int arrays.
         int[] bigIntArr = new int[bigNum.length+1];
         bigIntArr[0] = 0;
         for(int i=0; i<bigNum.length; i++){
@@ -35,26 +36,24 @@ public class SimpleAddition{
         int anchor=0;
         int carry=0;
         for(int i=smallNum.length-1; i>=0; i--){
-            System.out.println(smallIntArr[i]);
-            for(int j=bigNum.length - anchor ; j>=0; j--){
-                
-                
-                //Goes in while loop
-                
+            for(int j=bigNum.length - anchor; j>=0; j--){
                 if(j==0 && carry>0){
                     bigIntArr[j] += carry;
                     break;
                 }
-                //Ok now I think of logic in here...
-                //I'm almost there.
-                
-               // System.out.println("i"+smallIntArr[i]);
-              //  System.out.println("j"+bigIntArr[j]);
-            }
+                int temp = bigIntArr[j];
+                if(carry == 0){
+                    bigIntArr[j] = (smallIntArr[i] + bigIntArr[j] + carry)%10;
+                } else{
+                    bigIntArr[j] = (bigIntArr[j] + carry)%10;
+                }
+                carry = (smallIntArr[i] + temp) /10;
+                if(carry == 0) break;
+            }   
             anchor++;
         }
         
-        /*Print out
+        //Print out
         if(bigIntArr[0] == 0){
             for(int i=1; i<bigIntArr.length;i++){
                 System.out.print(bigIntArr[i]);
@@ -66,6 +65,6 @@ public class SimpleAddition{
             }
         }
         System.out.println();
-*/
+        input.close();
     }
 }
