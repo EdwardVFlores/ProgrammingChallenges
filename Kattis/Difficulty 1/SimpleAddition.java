@@ -6,6 +6,8 @@ import java.util.Scanner;
 /**
  * @author Edward Flores
  * Link: https://open.kattis.com/problems/simpleaddition
+ * 1337
+42
  */
 
 public class SimpleAddition{
@@ -19,19 +21,17 @@ public class SimpleAddition{
             bigNum = smallNum;
             smallNum = temp;
         }
-        ArrayList smallList = new ArrayList<>();
         int[] bigIntArr = new int[bigNum.length+1];
         bigIntArr[0] = 0;
-        for(int i=1; i<bigIntArr.length; i++){
-            bigIntArr[i] = bigNum[i-1]-'0';
+        for(int i=0; i<bigNum.length; i++){
+            bigIntArr[i+1] = bigNum[i]-'0';
         }
+        int[] smallIntArr = new int[smallNum.length-1];
         for(char c : smallNum){
-            smallList.add(c);
+            smallIntArr[0] = Integer.valueOf(c + "");
         }
-        
-        int[] smallIntArr = new int[smallList.size()];
-        for(int i=0;i<smallIntArr.length;i++){
-            smallIntArr[i] = Integer.valueOf(smallList.get(i)+"");
+        for(int i:smallIntArr){
+            System.out.println(i);
         }
         
         //Addition process
@@ -40,7 +40,7 @@ public class SimpleAddition{
         // And use that for the reset of index for the big number,
         // Because I am starting to give up.
         
-        //Print out
+        /*Print out
         if(bigIntArr[0] == 0){
             for(int i=1; i<bigIntArr.length;i++){
                 System.out.print(bigIntArr[i]);
@@ -52,5 +52,6 @@ public class SimpleAddition{
             }
         }
         System.out.println();
+        */
     }
 }
