@@ -26,19 +26,33 @@ public class SimpleAddition{
         for(int i=0; i<bigNum.length; i++){
             bigIntArr[i+1] = bigNum[i]-'0';
         }
-        int[] smallIntArr = new int[smallNum.length-1];
-        for(char c : smallNum){
-            smallIntArr[0] = Integer.valueOf(c + "");
-        }
-        for(int i:smallIntArr){
-            System.out.println(i);
+        int[] smallIntArr = new int[smallNum.length];
+        for(int i=0; i<smallNum.length;i++){
+            smallIntArr[i] = Integer.valueOf(smallNum[i] +"");
         }
         
         //Addition process
-        
-        // Okay time to just reverse the small number,
-        // And use that for the reset of index for the big number,
-        // Because I am starting to give up.
+        int anchor=0;
+        int carry=0;
+        for(int i=smallNum.length-1; i>=0; i--){
+            System.out.println(smallIntArr[i]);
+            for(int j=bigNum.length - anchor ; j>=0; j--){
+                
+                
+                //Goes in while loop
+                
+                if(j==0 && carry>0){
+                    bigIntArr[j] += carry;
+                    break;
+                }
+                //Ok now I think of logic in here...
+                //I'm almost there.
+                
+               // System.out.println("i"+smallIntArr[i]);
+              //  System.out.println("j"+bigIntArr[j]);
+            }
+            anchor++;
+        }
         
         /*Print out
         if(bigIntArr[0] == 0){
@@ -52,6 +66,6 @@ public class SimpleAddition{
             }
         }
         System.out.println();
-        */
+*/
     }
 }
