@@ -17,18 +17,18 @@ public class ReverseRot {
     public static void main(String[] args){
         Scanner input = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
         int numRot = input.nextInt();
-        char[] list = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_.".toCharArray();
+        String list = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_.";
         HashMap<Character, Integer> charList = new HashMap<>();
-        for(int i=0;i<list.length;i++){
-            charList.put(list[i],i);
+        for(int i=0;i<list.length();i++){
+            charList.put(list.charAt(i),i);
         }
         while(numRot>0){
             Deque<Character> stack = new ArrayDeque<>();
-            char[] msg = input.next().toCharArray();
-            for(char c : msg){
-                stack.push(list[((charList.get(c) + numRot)%28)]);
+            String msg = input.next();
+            for(int i=0;i<msg.length();i++){
+                stack.push(list.charAt((charList.get(msg.charAt(i)) + numRot)%28));
             }
-            for(char c : msg){
+            for(int i=0;i<msg.length();i++){
                 System.out.print(stack.poll());
             }
             System.out.println();
