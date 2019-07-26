@@ -31,9 +31,7 @@ public class PopularVote {
             Collections.sort(voteList);
             int lfirst = voteList.pollLast();
             int lsecond = voteList.pollLast();
-            if(lfirst == lsecond){
-                System.out.println("no winner");
-            }
+            if(lfirst == lsecond) System.out.println("no winner");
             else if(!voteList.isEmpty() && lfirst == voteList.peekFirst()) System.out.println("no winner"); 
             else if (lfirst > total/2) System.out.println("majority winner " + voteMap.get(lfirst));
             else if (lfirst <= total/2) System.out.println("minority winner " + voteMap.get(lfirst));
