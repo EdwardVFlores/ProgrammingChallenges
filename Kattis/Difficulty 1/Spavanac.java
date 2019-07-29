@@ -21,5 +21,6 @@ public class Spavanac{
             if(hours == 0) hours = 23;
         }
         System.out.println(hours + " " + mins);
+        input.close();
     }
 }
