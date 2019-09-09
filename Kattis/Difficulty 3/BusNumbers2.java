@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
- * @author EdwardsWife
+ * @author Edward Flores
  * Link: https://open.kattis.com/problems/busnumbers2
  */
 public class BusNumbers2 {
