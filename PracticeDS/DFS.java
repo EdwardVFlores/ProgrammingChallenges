@@ -1,39 +1,68 @@
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
+
+/**
+ * Version 2 of trying to implement DFS/BFS but searched up a video on how to do it.
+ */
+
 class Node {
-    int value;
-    Node left = null;
-    Node right = null;
-    Node(int value) {
+    String value;
+    Node left, right;
+
+    public Node(String value) {
         this.value = value;
     }
+
+    public Node(String value, Node left, Node right) {
+        this.value = value;
+        this.left = left;
+        this.right = right;
+    }
+
 }
 
-class DFS {
+
+/**
+ * Input
+ *     a
+ *    / \
+ *   b   c
+ *  /\  / \
+ * d  e f  g
+ *     / \
+ *    h null
+ * 
+ * Output 
+ * DFS: A -> B -> D -> E -> C -> F -> H -> G -> (Worked!)
+ * BFS: A -> B -> C -> D -> E -> F -> G -> H -> (Worked!)
+ * 
+ */
+public class DFS {
     public static void main(String[] args) {
-        Node n1 = new Node(5);
-        Node n2 = new Node(9);
-        Node n3 = new Node(12);
-        Node n4 = new Node(3);
+        Node root = new Node("A", 
+        new Node("B", new Node("D"), new Node("E")), 
+        new Node("C",new Node("F", new Node("H"), null),new Node("G")));
 
-        n1.left = n2;
-        n1.right = n3;
-        n2.left = n4;
-        System.out.println(dfs(n1));
-        
+        dfs(root); 
+        System.out.println();
+        bfs(root);
     }
-    public static String dfs(Node n){
-        Stack<Node> q = new Stack<Node>();
-        q.add(n);
-        while(!q.isEmpty()){
-            
-            Node curr = q.pop();
+
+    public static void dfs(Node root) {
+        if(root == null) return;
+        System.out.print(root.value + " -> ");
+        if(root.left != null) dfs(root.left);
+        if(root.right != null) dfs(root.right);
+    }
+
+    public static void bfs(Node root) {
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        while(!q.isEmpty()) {
+            Node curr = q.remove();
+            System.out.print(curr.value + " -> ");
             if(curr.left != null) q.add(curr.left);
-            
-            System.out.println(curr.value);
             if(curr.right != null) q.add(curr.right);
+
         }
-        return "";
     }
-}
+} 
