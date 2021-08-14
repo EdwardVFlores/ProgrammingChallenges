@@ -1,68 +1,33 @@
-import java.util.*;
+import java.util.ArrayList;
+class DFS {
 
-/**
- * Version 2 of trying to implement DFS/BFS but searched up a video on how to do it.
- */
-
-class Node {
-    String value;
-    Node left, right;
-
-    public Node(String value) {
-        this.value = value;
-    }
-
-    public Node(String value, Node left, Node right) {
-        this.value = value;
-        this.left = left;
-        this.right = right;
-    }
-
-}
-
-
-/**
- * Input
- *     a
- *    / \
- *   b   c
- *  /\  / \
- * d  e f  g
- *     / \
- *    h null
- * 
- * Output 
- * DFS: A -> B -> D -> E -> C -> F -> H -> G -> (Worked!)
- * BFS: A -> B -> C -> D -> E -> F -> G -> H -> (Worked!)
- * 
- */
-public class DFS {
-    public static void main(String[] args) {
-        Node root = new Node("A", 
-        new Node("B", new Node("D"), new Node("E")), 
-        new Node("C",new Node("F", new Node("H"), null),new Node("G")));
-
-        dfs(root); 
-        System.out.println();
-        bfs(root);
-    }
-
-    public static void dfs(Node root) {
-        if(root == null) return;
-        System.out.print(root.value + " -> ");
-        if(root.left != null) dfs(root.left);
-        if(root.right != null) dfs(root.right);
-    }
-
-    public static void bfs(Node root) {
-        Queue<Node> q = new LinkedList<>();
-        q.add(root);
-        while(!q.isEmpty()) {
-            Node curr = q.remove();
-            System.out.print(curr.value + " -> ");
-            if(curr.left != null) q.add(curr.left);
-            if(curr.right != null) q.add(curr.right);
-
+    static class Node{
+        int val;
+        Node left, right;
+        Node(int val){
+            this.val = val;
+        }
+        Node(int val, Node left, Node right){
+            this.val = val;
+            this.left = left;
+            this.right = right;
         }
     }
-} 
+    public static void main(String[] args) {
+        Node root = new Node(5, 
+        new Node(10, new Node(20), new Node(8)), 
+        new Node(7, new Node(30), new Node(14)));
+        ArrayList<Node> res = new ArrayList<>();
+        DFS(root,res);
+        for(Node n : res){
+            System.out.println(n.val);
+        }
+    } 
+
+    static void DFS(Node root, ArrayList<Node> res){
+        if(root == null) DFS(root, res);
+        if(root.left != null) DFS(root.left, res);
+        res.add(root);
+        if(root.right != null) DFS(root.right,res);
+    }
+}
