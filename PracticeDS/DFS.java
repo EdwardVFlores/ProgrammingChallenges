@@ -32,10 +32,15 @@ class DFS {
     } 
 
     static void DFS(Node root, ArrayList<Node> res){
-        if(root == null) DFS(root, res);
-        if(root.left != null) DFS(root.left, res);
-        res.add(root);
-        if(root.right != null) DFS(root.right,res);
+        Stack<Node> stack = new Stack<Node>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            Node curr = stack.pop();
+            if(curr.left != null) stack.push(curr.left);
+            res.add(curr);
+            if(curr.right != null) stack.push(curr.right);
+        }
+        
     }
 
     static void BFS(Node root, ArrayList<Node>res){
