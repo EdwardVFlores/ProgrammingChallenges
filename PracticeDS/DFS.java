@@ -37,8 +37,8 @@ class DFS {
         while(!stack.isEmpty()){
             Node curr = stack.pop();
             if(curr.left != null) stack.push(curr.left);
-            res.add(curr);
             if(curr.right != null) stack.push(curr.right);
+            res.add(curr);
         }
         
     }
