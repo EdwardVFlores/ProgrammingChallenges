@@ -19,10 +19,27 @@ class Node {
 
 class Solution {
     List<Integer> res = new ArrayList<Integer>();
-    public List<Integer> postorder(Node root) {
+    public List<Integer> postorderRecursive(Node root) {
         if(root == null) return res;
         for(Node child: root.children) postorder(child);
         res.add(root.val);
+        return res;
+    }
+
+    public List<Integer> postorderIterative(Node root) {
+        List<Integer> res = new LinkedList<Integer>();
+        if(root == null) return res;
+        Stack<Node> stack = new Stack<Node>();
+        stack.add(root);
+        while(!stack.isEmpty()){
+            root = stack.pop();
+            res.add(root.val);
+            for(int i = 0; i < root.children.size(); i++){
+                stack.add(root.children.get(i));
+                
+            }
+        }
+        Collections.reverse(res);
         return res;
     }
 }
