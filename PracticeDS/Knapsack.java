@@ -46,12 +46,10 @@ class Knapsack {
         List<int[]> ans = new ArrayList<>();
         int currentWeight = 0;
         for(int i = pick.size() - 1; i >= 0; i--){ //O(n)
-            for(int j = 1; j < 2; j++){
-                int index = (int)pick.get(i)[1];
-                currentWeight += nums.get(index)[1];
-                if(currentWeight > carryWeight) break;
-                ans.add(nums.get(index)); 
-            }
+            int index = (int)pick.get(i)[1];
+            currentWeight += nums.get(index)[1];
+            if(currentWeight > carryWeight) break;
+            ans.add(nums.get(index)); 
         }
         return ans;
     }
