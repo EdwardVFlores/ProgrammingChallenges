@@ -32,7 +32,6 @@ class Solution {
             else l1 = l1.next;
         }
         if(carry != 0) answer.next = new ListNode(1); // carry 1 at the end
-
         return head.next;
     }
 }
